@@ -13,4 +13,11 @@ namespace DragAndDrop
         IsPrivate,
         IsProtected
     }
+    public enum TypVztahu
+    {
+        Kompozice,
+        Agregace,
+        Asociace,
+        Dependence
+    }
 }
