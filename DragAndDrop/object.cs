@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 namespace DragAndDrop
 {
-    public class @object
+    public class @object : INamespecable
     {
+        public List<string> Usings;
+        public string MyNamespace { get; set; }
         public string nazev { get; set; }
-        public 
+        public ModifikatorPrEnum modifikator { get; set; }
+        
+        
     }
 }
