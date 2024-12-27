@@ -33,5 +33,10 @@ namespace DragAndDrop
         {
             _canvas.Draw(e.Graphics);
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            _canvas._boxes.Add(new Box(10,  100));
+        }
     }
 }

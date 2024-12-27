@@ -2,19 +2,20 @@
 {
     public class Canvas
     {
-        private List<Box> _boxes;
+        public List<Box> _boxes;
         private Selection? _selection;
 
         public Canvas()
         {
             _boxes = new List<Box>();
             _selection = null;
-
+            /*
             for(int i = 0; i < 5; i++)
             {
                 Box box = new Box(10, (i * 100) + 10);
                 _boxes.Add(box);
             }
+            */
         }
 
         public void Draw(Graphics g)
