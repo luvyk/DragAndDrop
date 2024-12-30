@@ -96,6 +96,8 @@ namespace DragAndDrop
             g.FillRectangle(Brushes.Black, Width - 10, Height - 10, 10, 10);
             g.DrawString(_text.Nazev, new Font("Arial", 10), Brushes.Black, 10, 10);
             //g.DrawString(_text, new Font("Arial", 10), Brushes.Black, 10, 10);
+            //mám v tom nepořádek
+
             g.ResetTransform();
         }
 
