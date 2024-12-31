@@ -36,7 +36,13 @@ namespace DragAndDrop
 
         private void addButton_Click(object sender, EventArgs e)
         {
-            _canvas._boxes.Add(new Box(10,  100));
+            _canvas._boxes.Add(new Box(10, 100));
+        }
+
+        private void UpravTridu_Click(object sender, EventArgs e)
+        {
+            SelectBoxToEdit editForm = new SelectBoxToEdit(_canvas);
+            editForm.Show();
         }
     }
 }

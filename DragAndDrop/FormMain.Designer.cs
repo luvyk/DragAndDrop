@@ -32,6 +32,7 @@
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             addButton = new Button();
+            UpravTridu = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -74,6 +75,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.Controls.Add(addButton, 0, 0);
+            tableLayoutPanel2.Controls.Add(UpravTridu, 1, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 524);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -92,6 +94,17 @@
             addButton.Text = "Přidej třídu";
             addButton.UseVisualStyleBackColor = true;
             addButton.Click += addButton_Click;
+            // 
+            // UpravTridu
+            // 
+            UpravTridu.Dock = DockStyle.Fill;
+            UpravTridu.Location = new Point(147, 3);
+            UpravTridu.Name = "UpravTridu";
+            UpravTridu.Size = new Size(138, 28);
+            UpravTridu.TabIndex = 1;
+            UpravTridu.Text = "Uprav řídu";
+            UpravTridu.UseVisualStyleBackColor = true;
+            UpravTridu.Click += UpravTridu_Click;
             // 
             // FormMain
             // 
@@ -115,5 +128,6 @@
         private TableLayoutPanel tableLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel2;
         private Button addButton;
+        private Button UpravTridu;
     }
 }
