@@ -31,6 +31,11 @@ namespace DragAndDrop
 
         private void EditButton_Click(object sender, EventArgs e)
         {
+            
+            int selectedIndex = dataGridView.CurrentCell.ColumnIndex;
+
+            MessageBox.Show($"Zvolil jste {_canvas._boxes[selectedIndex]._text.Modifikator}", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
 
         }
 
