@@ -37,6 +37,8 @@ namespace DragAndDrop
         private void addButton_Click(object sender, EventArgs e)
         {
             _canvas._boxes.Add(new Box(10, 100));
+            EditForm f = new EditForm(_canvas, _canvas._boxes.Count -1);
+            f.Show();
         }
 
         private void UpravTridu_Click(object sender, EventArgs e)
