@@ -48,7 +48,7 @@ namespace DragAndDrop
             _canvas._boxes[_index]._text.Modifikator = (ModifikatorPrEnum)ModPristupuTR.SelectedItem;
             _canvas._boxes[_index]._text.WhatItIs = CoToJe.Text;
             _canvas._boxes[_index]._text.Nazev = Nazev.Text;
-            if(NamespaceChose.SelectedItem != null || NamespaceChose.SelectedItem == "Vytvořit nový namespace")
+            if (NamespaceChose.SelectedItem != null || NamespaceChose.SelectedItem == "Vytvořit nový namespace")
             {
                 _canvas._boxes[_index]._text.MyNamespace = NamespaceChose.SelectedItem.ToString();
             }
@@ -57,6 +57,12 @@ namespace DragAndDrop
                 _canvas._boxes[_index]._text.MyNamespace = NewNamespace.Text;
             }
             this.Close();
+        }
+
+        private void EditUsings_Click(object sender, EventArgs e)
+        {
+            MultiEditForm f = new MultiEditForm(_canvas, _index, "");
+            f.Show();
         }
     }
 }

@@ -54,6 +54,7 @@
             EditUsings.TabIndex = 0;
             EditUsings.Text = "Usings";
             EditUsings.UseVisualStyleBackColor = true;
+            EditUsings.Click += EditUsings_Click;
             // 
             // label1
             // 
