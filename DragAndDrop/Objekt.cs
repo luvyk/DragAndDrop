@@ -14,6 +14,7 @@ namespace DragAndDrop
         public string WhatItIs {  get; set; }
         public string Nazev { get; set; }
         public List<Objekt>? Realizace { get; set; }
+        public List<string> RealizaceUvnitr {  get; set; }
         public List<Vlastnost> Vlastnosti { get; set; }
         public string Konstruktor { get; set; }
         public List<Metoda> Metody { get; set; }
@@ -25,10 +26,11 @@ namespace DragAndDrop
             Modifikator = ModifikatorPrEnum.IsPublic;
             WhatItIs = "class";
             Nazev = string.Empty;
-            Realizace = null;
+            Realizace = new List<Objekt>();
             Vlastnosti = new List<Vlastnost>();
             Konstruktor = string.Empty;
             Metody = new List<Metoda>();
+            RealizaceUvnitr = new List<string>();
         }
     }
 }

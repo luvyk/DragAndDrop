@@ -148,6 +148,7 @@
             UpravRealizace.TabIndex = 11;
             UpravRealizace.Text = "Uprav Realizace";
             UpravRealizace.UseVisualStyleBackColor = true;
+            UpravRealizace.Click += UpravRealizace_Click;
             // 
             // UpravVlastnosti
             // 

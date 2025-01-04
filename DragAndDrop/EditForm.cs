@@ -64,5 +64,11 @@ namespace DragAndDrop
             MultiEditForm f = new MultiEditForm(_canvas, _index, "");
             f.Show();
         }
+
+        private void UpravRealizace_Click(object sender, EventArgs e)
+        {
+            MultiEditForm f = new MultiEditForm(_canvas, _index, "Realizace");
+            f.Show();
+        }
     }
 }
