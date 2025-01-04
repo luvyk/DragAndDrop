@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DragAndDrop.Odpadky;
 using System.Linq;
+using System.Dynamic;
 
 namespace DragAndDrop
 {
@@ -45,13 +46,17 @@ namespace DragAndDrop
 
                     }
                 }
-                foreach(Objekt o in _canvas._boxes[_index]._text.Realizace)
+                foreach (string o in _canvas._boxes[_index]._text.Usings)
                 {
-                        objekts.Add(o);
+                    BindingVyber.Add(new BindingString(o));
                 }
-            
+
                 Nabidka.DataSource = bindingList;
                 Nabidka.Refresh();
+                Vyber.DataSource = "";
+                Vyber.Refresh();
+                Vyber.DataSource = BindingVyber;
+                Vyber.Refresh();
             }
             else
             {
@@ -62,6 +67,22 @@ namespace DragAndDrop
                     Nabidka.DataSource = bindingList;
                     Nabidka.Refresh();
                 }
+                foreach (Objekt o in _canvas._boxes[_index]._text.Realizace)
+                {
+                    objekts.Add((Objekt)o);
+                }
+                foreach (string o in _canvas._boxes[_index]._text.RealizaceUvnitr)
+                {
+                    Objekt X = new Objekt();
+                    X.Nazev = o;
+                    X.MyNamespace = "--BezKrabice";
+                    objekts.Add(X);
+                }
+                Nabidka.Refresh();
+                Vyber.DataSource = "";
+                Vyber.Refresh();
+                Vyber.DataSource = objekts;
+                Vyber.Refresh();
             }
 
         }
@@ -80,6 +101,9 @@ namespace DragAndDrop
             }
             else
             {
+                _canvas._boxes[_index]._text.RealizaceUvnitr.Clear();
+                _canvas._boxes[_index]._text.Realizace.Clear();
+
                 foreach (Objekt o in objekts)
                 {
                     if (o.MyNamespace == "--BezKrabice")

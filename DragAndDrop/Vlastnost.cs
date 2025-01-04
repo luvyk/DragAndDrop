@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DragAndDrop.Odpadky;
 
 namespace DragAndDrop
 {
@@ -10,6 +11,7 @@ namespace DragAndDrop
     {
         public ModifikatorPrEnum Modifikator { get; set; }
         public bool JeDatTypSlozeny { get; set; }
+        //public string? DatovyTyp { get { return "nasrat"; } set { } }
         public string? DatovyTyp { get; set; }
         public string Nazev { get; set; }
         public string Getter { get; set; }
