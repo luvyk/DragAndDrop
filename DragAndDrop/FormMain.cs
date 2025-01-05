@@ -63,9 +63,16 @@ namespace DragAndDrop
 
                 Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
                 pictureBox.DrawToBitmap(bmp, new Rectangle(0, 0, pictureBox.Width, pictureBox.Height));
-                bmp.Save(folderPath + "test.png", ImageFormat.Png);
+                bmp.Save(folderPath + "\\test.png", ImageFormat.Png);
+                DialogResult d = new DialogResult();
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Nastaveni n = new Nastaveni(_canvas);
+            n.Show();
         }
     }
 }

@@ -34,6 +34,7 @@
             addButton = new Button();
             UpravTridu = new Button();
             button1 = new Button();
+            button2 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -78,6 +79,7 @@
             tableLayoutPanel2.Controls.Add(addButton, 0, 0);
             tableLayoutPanel2.Controls.Add(UpravTridu, 1, 0);
             tableLayoutPanel2.Controls.Add(button1, 2, 0);
+            tableLayoutPanel2.Controls.Add(button2, 3, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 524);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -119,6 +121,17 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Fill;
+            button2.Location = new Point(435, 3);
+            button2.Name = "button2";
+            button2.Size = new Size(140, 28);
+            button2.TabIndex = 3;
+            button2.Text = "Nastavení";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -143,5 +156,6 @@
         private Button addButton;
         private Button UpravTridu;
         private Button button1;
+        private Button button2;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using DragAndDrop.Odpadky;
+using System.Web;
 
 namespace DragAndDrop
 {
@@ -9,7 +10,7 @@ namespace DragAndDrop
         public int Width { get; private set; }
         public int Height { get; private set; }
 
-        public int MinWidth => 80;
+        public int MinWidth => 160;
         public int MinHeight { get; set; }
         public int MaxWidth => 320;
         public int MaxHeight => 500;
@@ -22,7 +23,7 @@ namespace DragAndDrop
             PositionX = x;
             PositionY = y;
 
-            Width = 80;
+            Width = 160;
             Height = 80;
             _color = Brushes.Red;
             _text = new Objekt();
@@ -100,13 +101,15 @@ namespace DragAndDrop
 
             foreach(Vlastnost s in _text.Vlastnosti)
             {
-                g.DrawString(s.Nazev, new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
+                string modifikator = PrevedModPrNaZnak(s.Modifikator);
+                g.DrawString($"{modifikator}{s.Nazev}: {s.DatovyTyp}", new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
                 vlastnostY += 11;
             }
             vlastnostY += 15;
             foreach (Metoda m in _text.Metody)
             {
-                g.DrawString(m.Nazev, new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
+                string modifikator = PrevedModPrNaZnak(m.Pristup);
+                g.DrawString($"{modifikator}{m.Nazev}()", new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
                 vlastnostY += 11;
             }
             //g.DrawString(_text, new Font("Arial", 10), Brushes.Black, 10, 10);
@@ -114,7 +117,26 @@ namespace DragAndDrop
 
             g.ResetTransform();
         }
-
+        public string PrevedModPrNaZnak(ModifikatorPrEnum enumerator)
+        {
+            string znak = "";
+            switch (enumerator)
+            {
+                case ModifikatorPrEnum.IsInternal:
+                    znak = "~";
+                    break;
+                case ModifikatorPrEnum.IsPrivate:
+                    znak = "-";
+                    break;
+                case ModifikatorPrEnum.IsPublic:
+                    znak = "+";
+                    break;
+                case ModifikatorPrEnum.IsProtected:
+                    znak = "#";
+                    break;
+            }
+            return znak;
+        }
         public bool IsInCollision(int x, int y)
         {
             return x > PositionX && x <= PositionX + Width
