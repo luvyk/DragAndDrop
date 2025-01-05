@@ -100,6 +100,8 @@ namespace DragAndDrop
             else if (_metody != null)
             {
                 int selectedIndex = dataGridView.CurrentCell.RowIndex;
+                EditMetoda m = new EditMetoda(_metody[selectedIndex], _canvas);
+                m.Show();
 
             }
             else if (_canvas != null)
@@ -115,13 +117,7 @@ namespace DragAndDrop
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            if (_canvas != null)
-            {
-                int selectedIndex = dataGridView.CurrentCell.RowIndex;
-                _canvas._boxes.RemoveAt(selectedIndex);
-
-                NastavTabulkuC();
-            }
+            
 
             if (_vlastnosti != null)
             {
@@ -129,13 +125,24 @@ namespace DragAndDrop
                 _vlastnosti.RemoveAt(selectedIndex);
                 NastavTabulkuV();
             }
-
+            else
             if (_metody != null)
             {
+                if (dataGridView.CurrentCell.RowIndex == null)
+                    return;
+
                 int selectedIndex = dataGridView.CurrentCell.RowIndex;
                 _metody.RemoveAt(selectedIndex);
 
                 NastavTabulkuM();
+            }
+            else
+            if (_canvas != null)
+            {
+                int selectedIndex = dataGridView.CurrentCell.RowIndex;
+                _canvas._boxes.RemoveAt(selectedIndex);
+
+                NastavTabulkuC();
             }
 
         }
@@ -167,7 +174,15 @@ namespace DragAndDrop
 
             if (_metody != null)
             {
-                
+                Metoda m = new Metoda();
+                EditMetoda MetodaWindow = new EditMetoda(m, _canvas);
+                MetodaWindow.Show();
+                _metody.Add(m);
+
+                dataGridView.DataSource = "";
+                dataGridView.Refresh();
+                dataGridView.DataSource = _metody;
+                dataGridView.Refresh();
             }
         }
     }

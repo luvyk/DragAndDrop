@@ -94,7 +94,21 @@ namespace DragAndDrop
             g.TranslateTransform(PositionX, PositionY);
             g.FillRectangle(_color, 0, 0, Width, Height);
             g.FillRectangle(Brushes.Black, Width - 10, Height - 10, 10, 10);
-            g.DrawString(_text.Nazev, new Font("Arial", 10), Brushes.Black, 10, 10);
+            g.DrawString(_text.Nazev, new Font("Comic Sans MS", 10), Brushes.Black, 10, 10);
+            g.DrawLine(Pens.Black, 0,25,Width, 25);
+            int vlastnostY = 25;
+
+            foreach(Vlastnost s in _text.Vlastnosti)
+            {
+                g.DrawString(s.Nazev, new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
+                vlastnostY += 11;
+            }
+            vlastnostY += 15;
+            foreach (Metoda m in _text.Metody)
+            {
+                g.DrawString(m.Nazev, new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
+                vlastnostY += 11;
+            }
             //g.DrawString(_text, new Font("Arial", 10), Brushes.Black, 10, 10);
             //mám v tom nepořádek
 

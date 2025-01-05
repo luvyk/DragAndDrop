@@ -33,6 +33,7 @@
             tableLayoutPanel2 = new TableLayoutPanel();
             addButton = new Button();
             UpravTridu = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -76,6 +77,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableLayoutPanel2.Controls.Add(addButton, 0, 0);
             tableLayoutPanel2.Controls.Add(UpravTridu, 1, 0);
+            tableLayoutPanel2.Controls.Add(button1, 2, 0);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(3, 524);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -106,6 +108,17 @@
             UpravTridu.UseVisualStyleBackColor = true;
             UpravTridu.Click += UpravTridu_Click;
             // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Fill;
+            button1.Location = new Point(291, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(138, 28);
+            button1.TabIndex = 2;
+            button1.Text = "Ulož obrázek";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // FormMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -129,5 +142,6 @@
         private TableLayoutPanel tableLayoutPanel2;
         private Button addButton;
         private Button UpravTridu;
+        private Button button1;
     }
 }

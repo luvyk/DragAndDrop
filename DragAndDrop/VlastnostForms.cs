@@ -52,7 +52,7 @@ namespace DragAndDrop
             DatovyTyp.Text = string.Empty;
             DatovyTyp.Enabled = false;
             _vlastnost.JeDatTypSlozeny = true;
-            VyberAPriradPolozku v = new VyberAPriradPolozku(_canvas, _vlastnost);
+            VyberAPriradPolozku v = new VyberAPriradPolozku(_canvas, _vlastnost, null);
             v.Show();
         }
 

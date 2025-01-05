@@ -1,3 +1,6 @@
+using System.Drawing;
+using System.Drawing.Imaging;
+
 namespace DragAndDrop
 {
     public partial class FormMain : Form
@@ -37,7 +40,7 @@ namespace DragAndDrop
         private void addButton_Click(object sender, EventArgs e)
         {
             _canvas._boxes.Add(new Box(10, 100));
-            EditForm f = new EditForm(_canvas, _canvas._boxes.Count -1);
+            EditForm f = new EditForm(_canvas, _canvas._boxes.Count - 1);
             f.Show();
         }
 
@@ -45,6 +48,24 @@ namespace DragAndDrop
         {
             SelectBoxToEdit editForm = new SelectBoxToEdit(_canvas);
             editForm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog(); // Nastavení vlastností dialogu
+            folderBrowserDialog.Description = "Vyberte složku";
+            folderBrowserDialog.RootFolder = Environment.SpecialFolder.MyComputer;
+            folderBrowserDialog.ShowNewFolderButton = true;
+
+            if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+            {
+                string folderPath = folderBrowserDialog.SelectedPath;
+
+                Bitmap bmp = new Bitmap(pictureBox.Width, pictureBox.Height);
+                pictureBox.DrawToBitmap(bmp, new Rectangle(0, 0, pictureBox.Width, pictureBox.Height));
+                bmp.Save(folderPath + "test.png", ImageFormat.Png);
+            }
+
         }
     }
 }
