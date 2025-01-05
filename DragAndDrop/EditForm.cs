@@ -36,6 +36,10 @@ namespace DragAndDrop
                     NamespaceChose.Items.Add(b._text.MyNamespace);
                 }
             }
+            NamespaceChose.SelectedItem = _canvas._boxes[_index]._text.MyNamespace;
+            ModPristupuTR.SelectedItem = _canvas._boxes[_index]._text.Modifikator;
+            CoToJe.Text = _canvas._boxes[_index]._text.WhatItIs;
+            Nazev.Text = _canvas._boxes[_index]._text.Nazev;
 
         }
 
@@ -70,6 +74,30 @@ namespace DragAndDrop
         {
             MultiEditForm f = new MultiEditForm(_canvas, _index, "Realizace");
             f.Show();
+        }
+
+        private void UpravVlastnosti_Click(object sender, EventArgs e)
+        {
+            SelectBoxToEdit s = new SelectBoxToEdit(_canvas._boxes[_index]._text.Vlastnosti, _canvas);
+            s.Show();
+        }
+
+        private void UpravMetody_Click(object sender, EventArgs e)
+        {
+            SelectBoxToEdit s = new SelectBoxToEdit(_canvas._boxes[_index]._text.Metody, _canvas);
+            s.Show();
+        }
+
+        private void Zrusit_Click(object sender, EventArgs e)
+        {
+            _canvas._boxes.Remove(_canvas._boxes[_index]);
+            this.Close();
+        }
+
+        private void Zrusit_Click_1(object sender, EventArgs e)
+        {
+            _canvas._boxes.Remove(_canvas._boxes[_index]);
+            this.Close();
         }
     }
 }

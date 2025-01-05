@@ -30,13 +30,14 @@
         {
             ModifikatorPristupu = new ComboBox();
             SlozitDatTyp = new Button();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
+            Nazev = new TextBox();
+            Getter = new TextBox();
+            Setter = new TextBox();
             label1 = new Label();
             label2 = new Label();
             SaveButton = new Button();
             CancelButton = new Button();
+            DatovyTyp = new TextBox();
             SuspendLayout();
             // 
             // ModifikatorPristupu
@@ -55,34 +56,35 @@
             SlozitDatTyp.TabIndex = 1;
             SlozitDatTyp.Text = "Složený datový typ";
             SlozitDatTyp.UseVisualStyleBackColor = true;
+            SlozitDatTyp.Click += SlozitDatTyp_Click;
             // 
-            // textBox1
+            // Nazev
             // 
-            textBox1.Location = new Point(12, 70);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(160, 23);
-            textBox1.TabIndex = 2;
+            Nazev.Location = new Point(12, 124);
+            Nazev.Name = "Nazev";
+            Nazev.Size = new Size(160, 23);
+            Nazev.TabIndex = 2;
             // 
-            // textBox2
+            // Getter
             // 
-            textBox2.Location = new Point(12, 131);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(213, 307);
-            textBox2.TabIndex = 3;
+            Getter.Location = new Point(12, 168);
+            Getter.Multiline = true;
+            Getter.Name = "Getter";
+            Getter.Size = new Size(213, 307);
+            Getter.TabIndex = 3;
             // 
-            // textBox3
+            // Setter
             // 
-            textBox3.Location = new Point(231, 131);
-            textBox3.Multiline = true;
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(213, 307);
-            textBox3.TabIndex = 4;
+            Setter.Location = new Point(231, 168);
+            Setter.Multiline = true;
+            Setter.Name = "Setter";
+            Setter.Size = new Size(213, 307);
+            Setter.TabIndex = 4;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 113);
+            label1.Location = new Point(12, 150);
             label1.Name = "label1";
             label1.Size = new Size(39, 15);
             label1.TabIndex = 5;
@@ -91,11 +93,12 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(231, 113);
+            label2.Location = new Point(231, 150);
             label2.Name = "label2";
             label2.Size = new Size(37, 15);
             label2.TabIndex = 6;
             label2.Text = "Setter";
+            label2.Click += label2_Click;
             // 
             // SaveButton
             // 
@@ -115,19 +118,28 @@
             CancelButton.TabIndex = 8;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
+            // 
+            // DatovyTyp
+            // 
+            DatovyTyp.Location = new Point(12, 70);
+            DatovyTyp.Name = "DatovyTyp";
+            DatovyTyp.Size = new Size(160, 23);
+            DatovyTyp.TabIndex = 9;
             // 
             // VlastnostForms
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(466, 450);
+            ClientSize = new Size(466, 502);
+            Controls.Add(DatovyTyp);
             Controls.Add(CancelButton);
             Controls.Add(SaveButton);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(textBox3);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(Setter);
+            Controls.Add(Getter);
+            Controls.Add(Nazev);
             Controls.Add(SlozitDatTyp);
             Controls.Add(ModifikatorPristupu);
             Name = "VlastnostForms";
@@ -140,12 +152,13 @@
 
         private ComboBox ModifikatorPristupu;
         private Button SlozitDatTyp;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private TextBox textBox3;
+        private TextBox Nazev;
+        private TextBox Getter;
+        private TextBox Setter;
         private Label label1;
         private Label label2;
         private Button SaveButton;
         private Button CancelButton;
+        private TextBox DatovyTyp;
     }
 }

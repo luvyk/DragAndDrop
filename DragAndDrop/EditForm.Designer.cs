@@ -158,6 +158,7 @@
             UpravVlastnosti.TabIndex = 12;
             UpravVlastnosti.Text = "Uprav vlastnosti";
             UpravVlastnosti.UseVisualStyleBackColor = true;
+            UpravVlastnosti.Click += UpravVlastnosti_Click;
             // 
             // UpravMetody
             // 
@@ -167,6 +168,7 @@
             UpravMetody.TabIndex = 13;
             UpravMetody.Text = "Uprav metody";
             UpravMetody.UseVisualStyleBackColor = true;
+            UpravMetody.Click += UpravMetody_Click;
             // 
             // SaveButton
             // 
@@ -186,6 +188,7 @@
             Zrusit.TabIndex = 15;
             Zrusit.Text = "Zrušit (smaže objekt)";
             Zrusit.UseVisualStyleBackColor = true;
+            Zrusit.Click += Zrusit_Click_1;
             // 
             // EditForm
             // 

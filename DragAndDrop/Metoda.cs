@@ -16,7 +16,7 @@ namespace DragAndDrop
         public Objekt? NavratovyObjekt { get; set; }
         public string Nazev {  get; set; }
         public List<string>? Parametry { get; set; }
-        public List<Objekt>? ObjektoveParametry { get; set; }
+        public List<Objekt>? ObjektoveParametry { get; set; } //dependence
         public string? TeloMetody { get; set; }
 
         public Metoda()
