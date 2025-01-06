@@ -20,6 +20,7 @@ namespace DragAndDrop
         public string Konstruktor { get; set; }
         public List<Metoda> Metody { get; set; }
 
+
         public Objekt()
         {
             Usings = new List<string>();

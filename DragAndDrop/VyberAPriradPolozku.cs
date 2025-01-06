@@ -68,6 +68,11 @@ namespace DragAndDrop
             {
                 int index = dataGridView1.CurrentCell.RowIndex;
                 Vlastnost.KompozicneAgregacniVztah = _canvas._boxes[index]._text;
+                Vlastnost.TypVztahu = (TypVztahu)comboBox1.SelectedItem!;
+                if ((TypVztahu)comboBox1.SelectedItem == TypVztahu.Asociace)
+                {
+                    Vlastnost.Multiplicita = checkBox1.Checked;
+                }
                 this.Close();
             }
             else

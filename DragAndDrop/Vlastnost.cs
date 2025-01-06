@@ -17,6 +17,7 @@ namespace DragAndDrop
         public string Getter { get; set; }
         public string Setter { get; set; }
         public Objekt? KompozicneAgregacniVztah {  get; set; }
+        public bool? Multiplicita {  get; set; }
         public TypVztahu? TypVztahu { get; set; }
 
         public Vlastnost()
@@ -29,6 +30,7 @@ namespace DragAndDrop
             Setter = string.Empty;
             KompozicneAgregacniVztah = null;
             TypVztahu = null;
+            Multiplicita = null;
         }
 
     }

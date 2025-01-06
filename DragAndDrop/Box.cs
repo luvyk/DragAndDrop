@@ -1,4 +1,5 @@
 ﻿using DragAndDrop.Odpadky;
+using System.Numerics;
 using System.Web;
 
 namespace DragAndDrop
@@ -17,8 +18,10 @@ namespace DragAndDrop
 
         private Brush _color;
         public Objekt _text;
+        public List<Cara> Cary {  get; set; }
+        private Canvas _canvas { get; set; }
 
-        public Box(int x, int y)
+        public Box(int x, int y, Canvas canvas)
         {
             PositionX = x;
             PositionY = y;
@@ -30,8 +33,44 @@ namespace DragAndDrop
             _text.Nazev = "TestClass";
             //_text = "Box";
             MinHeight = 40;
+            _canvas = canvas;
         }
 
+        public Cara VytvorCaru(Box b)
+        {
+            Cara c = new Cara();
+            c.StartX = NajdiXStredBoxu(this);
+            c.StartY = NajdiYStredBoxu(this);
+            c.EndX = NajdiXStredBoxu(b);
+            c.EndY = NajdiYStredBoxu(b);
+            if (this.PositionX < b.PositionX)
+            {
+                c.BodXProCisloStart = Convert.ToInt32(c.StartX + 10 + (this.Width * 0.7));
+            }
+            else
+            {
+                c.BodXProCisloStart = Convert.ToInt32(c.StartX - 10 - (this.Width * 0.7));
+            }
+
+            if (this.PositionY < b.PositionY)
+            {
+                c.BodYProCisloStart = Convert.ToInt32(c.StartY + 10 + (b.Height * 0.7));
+            }
+            else
+            {
+                c.BodYProCisloStart = Convert.ToInt32(c.StartY - 10 - (b.Height * 0.7));
+            }
+                
+            return c;
+        }
+        public int NajdiXStredBoxu(Box b)
+        {
+            return b.PositionX; //+ (Convert.ToInt32(b.Width * 0.5));
+        }
+        public int NajdiYStredBoxu(Box b)
+        {
+            return b.PositionY; //+ (Convert.ToInt32(b.Height * 0.5));
+        }
         public void AdjustHeight()
         {
             int countOfRows = 1;
@@ -111,6 +150,12 @@ namespace DragAndDrop
                 string modifikator = PrevedModPrNaZnak(m.Pristup);
                 g.DrawString($"{modifikator}{m.Nazev}()", new Font("Comic Sans MS", 10), Brushes.Black, 10, vlastnostY);
                 vlastnostY += 11;
+            }
+            foreach(Objekt o in this._text.Realizace)
+            {
+                Box x = _canvas._boxes.FirstOrDefault(s => s._text == o);
+                Cara c = VytvorCaru(x);
+                g.DrawLine(Pens.Black, PositionX /2, PositionY/2, x.PositionX, x.PositionY);
             }
             //g.DrawString(_text, new Font("Arial", 10), Brushes.Black, 10, 10);
             //mám v tom nepořádek
