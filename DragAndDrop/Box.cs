@@ -65,11 +65,25 @@ namespace DragAndDrop
         }
         public int NajdiXStredBoxu(Box b)
         {
-            return b.PositionX; //+ (Convert.ToInt32(b.Width * 0.5));
+            if(b != null)
+            {
+                return b.PositionX; //+ (Convert.ToInt32(b.Width * 0.5));
+            }
+            else
+            {
+                return 0;
+            }
         }
         public int NajdiYStredBoxu(Box b)
         {
-            return b.PositionY; //+ (Convert.ToInt32(b.Height * 0.5));
+            if (b != null)
+            {
+                return b.PositionY; //+ (Convert.ToInt32(b.Height * 0.5));
+            }
+            else
+            {
+                return 0;
+            }
         }
         public void AdjustHeight()
         {
@@ -154,8 +168,12 @@ namespace DragAndDrop
             foreach(Objekt o in this._text.Realizace)
             {
                 Box x = _canvas._boxes.FirstOrDefault(s => s._text == o);
-                Cara c = VytvorCaru(x);
-                g.DrawLine(Pens.Black, PositionX /2, PositionY/2, x.PositionX, x.PositionY);
+
+                //if (x.PositionX != null)
+                //{
+                 //   Cara c = VytvorCaru(x);
+                //    g.DrawLine(Pens.Black, PositionX / 2, PositionY / 2, x.PositionX, x.PositionY);
+                //}
             }
             //g.DrawString(_text, new Font("Arial", 10), Brushes.Black, 10, 10);
             //mám v tom nepořádek
